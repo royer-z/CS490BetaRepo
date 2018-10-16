@@ -18,12 +18,19 @@ onlyForm.addEventListener('submit', function(event) {
 		if(newData === 'empty') {
 			result.innerHTML = "Please fill in all fields.";
 		}
-		else{
-			if(newData.njitLoginSucceeded === 'true' || newData.backendLoginSucceeded === 'true') {
-				result.innerHTML = "Welcome!<br>"+" NJIT: "+newData.njitLoginSucceeded+"<br>"+"Back-end: "+newData.backendLoginSucceeded;
+		else{ 
+			// Check if login is success and if instructor or student:
+			// Middle may need to return student/professor UCID to redirect to correct pages
+			if(newData.loginSucceeded === 'true' && newData.instructor === 'true') {
+				result.innerHTML = "Welcome professor!<br>"+"Login success: "+newData.loginSucceeded+"<br>"+"Instructor: "+newData.instructor+"<br>";
+				window.location.replace('instructor.html'); // redirect to instructor page
 			}
-			else {
-				result.innerHTML = "Incorrect login information.<br>"+" NJIT: "+newData.njitLoginSucceeded+"<br>"+"Back-end: "+newData.backendLoginSucceeded;
+			else if(newData.loginSucceeded === 'true' && newData.instructor === 'false') {
+				result.innerHTML = "Welcome student!<br>"+"Login success: "+newData.loginSucceeded+"<br>"+"Instructor: "+newData.instructor+"<br>";
+				window.location.replace('student.html'); // redirect to student page
+			}
+			else { // If login is unsuccessful: Display prompt
+				result.innerHTML = "Incorrect login information.<br>"+" Login Success: "+newData.loginSucceeded+"<br>";
 			}
 		}
 	});

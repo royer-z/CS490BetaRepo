@@ -1,16 +1,56 @@
 @charset "utf-8";
 
-button {
+#loginButton {
 	color: white;
-	background-color:#8F2021;
+	background-color:#8F2021;	
 }
 
-form {
-	text-align: center; 
+#addQButton {
+	color: white;
+	background-color: blue;
 }
 
-p {
+#checkedQButton {
+	color: white;
+	background-color: #81A85D;
+}
+
+#submitDraftButton {
+	color: white;
+	background-color: #2B399E;
+}
+
+.centered {
 	text-align: center;
 }
 
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+.flex-container {
+	display: flex;
+	height: 100%;
+}
+
+#examDraft {
+	background-color: #D4CA77;
+	flex: 1;
+}
+
+#availableQ {
+	background-color: #D69EE5;
+	flex: 1;
+}
+
+#recentlyAddedQ {
+	background-color: #61E6C9;
+	flex: 1;
+}
+
+#addQ {
+	background-color: #64BF95;
+	flex: 1;
+}
 
