@@ -21,10 +21,10 @@ function takeExam() {
 	var selectExamForm = document.getElementById('selectExamForm');
 	
 	// Fetch all questions and display in 
-	var mainForm = document.getElementById('student1MainForm');
+	var mainForm = document.getElementById('student2MainForm');
 	var fData = new FormData(mainForm);
 	
-	fetch('student1GetExams.php', {
+	fetch('student2GetExams.php', {
 		method: 'POST',
 		body: fData
 	})
@@ -38,7 +38,7 @@ function takeExam() {
 			for (item = 0; item < newData.openExams.length; item++) {
 				selectExamForm.innerHTML += "<input type='radio' name='pickedE' value="+newData.openExams[item].examId+">"+newData.openExams[item].examName+"<br>";
 			}
-			selectExamForm.innerHTML += "<br><button type='button' id='checkedEButton' onclick='takeChecked()'>Take Exam</button>";
+			selectExamForm.innerHTML += "<button type='button' id='checkedEButton' onclick='takeChecked()'>Take Exam</button>";
 		}
 	});
 	
@@ -53,7 +53,7 @@ function viewGrades() {
 	// Fetch all questions and display in 
 	var mainForm = document.getElementById('mainForm');
 	var fData = new FormData(mainForm);
-	fetch('student1GetGrades.php', {
+	fetch('student2GetGrades.php', {
 		method: 'POST',
 		body: fData
 	})
@@ -84,7 +84,7 @@ function takeChecked() {
 	var selectExamForm = document.getElementById('selectExamForm');
 	var fData = new FormData(selectExamForm);
 	
-	fetch('student1RequestExamToTake.php', {
+	fetch('student2RequestExamToTake.php', {
 		method: 'POST',
 		body: fData
 	})
@@ -131,7 +131,7 @@ function submitExamAnswers() {
 	}
 	*/
 	
-	fetch('student1SubmitExamAnswers.php', {
+	fetch('student2SubmitExamAnswers.php', {
 		method: 'POST',
 		body: fData
 	})

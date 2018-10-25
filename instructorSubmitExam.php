@@ -1,15 +1,19 @@
 <?php
 // cURL in PHP
 $examName = $_POST['examName'];
-$pickedQs = $_POST['pickedQ'];
+$questionIds = $_POST['pickedQ'];
 
-if($examName === '') { // Detect if any form field is empty
-	echo json_encode('Blank exam name!');
+
+if(count($questionIds) == 0) { // Detect if questions were selected
+	echo json_encode('empty');
+}
+else if($examName == '') {
+	echo json_encode('empty');
 }
 else { // Send data using cURL
 	$formData;
 	$formData->examName = $examName;
-	$formData->pickedQs = $pickedQs;
+	$formData->questionIds = $questionIds;
 	
 	$formDataJSON = json_encode($formData);
 	

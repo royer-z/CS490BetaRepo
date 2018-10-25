@@ -5,21 +5,6 @@
 	background-color:#8F2021;	
 }
 
-#addQButton {
-	color: white;
-	background-color: blue;
-}
-
-#checkedQButton {
-	color: white;
-	background-color: #81A85D;
-}
-
-#submitDraftButton {
-	color: white;
-	background-color: #2B399E;
-}
-
 .centered {
 	text-align: center;
 }
@@ -35,22 +20,26 @@ html, body {
 }
 
 #examDraft {
-	background-color: #D4CA77;
+	background-color: #C0FFF1;
 	flex: 1;
 }
 
 #availableQ {
-	background-color: #D69EE5;
+	background-color: #FFEFC0;
 	flex: 1;
 }
 
 #recentlyAddedQ {
-	background-color: #61E6C9;
+	background-color: #FFEFBF;
 	flex: 1;
 }
 
 #addQ {
-	background-color: #64BF95;
+	background-color: #C4FFD7;
 	flex: 1;
+}
+
+#releaseExamDiv {
+	background-color: #F6FFC4;
 }
 

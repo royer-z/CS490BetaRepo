@@ -21,13 +21,31 @@ onlyForm.addEventListener('submit', function(event) {
 		else{ 
 			// Check if login is success and if instructor or student:
 			// Middle may need to return student/professor UCID to redirect to correct pages
+			var condition = 'true';
+			for(var value of fData.values()) {
+				
+				if(condition === 'true') {
+					var ucid = value;
+					condition = 'false';
+				}
+				else if(condition === 'false') {
+					var pass = value;
+				}
+			}
 			if(newData.loginSucceeded === 'true' && newData.instructor === 'true') {
 				result.innerHTML = "Welcome professor!<br>"+"Login success: "+newData.loginSucceeded+"<br>"+"Instructor: "+newData.instructor+"<br>";
-				window.location.replace('instructor.html'); // redirect to instructor page
+				if(ucid === 'ab123') {
+					window.location.replace('instructor.html'); // redirect to instructor page
+				}
 			}
 			else if(newData.loginSucceeded === 'true' && newData.instructor === 'false') {
 				result.innerHTML = "Welcome student!<br>"+"Login success: "+newData.loginSucceeded+"<br>"+"Instructor: "+newData.instructor+"<br>";
-				window.location.replace('student.html'); // redirect to student page
+				if(ucid === 'Ma123') {
+					window.location.replace('student1.html'); // redirect to student page
+				}
+				else if(ucid === 'Na123') {
+					window.location.replace('student2.html'); // redirect to student page
+				}
 			}
 			else { // If login is unsuccessful: Display prompt
 				result.innerHTML = "Incorrect login information.<br>"+" Login Success: "+newData.loginSucceeded+"<br>";
